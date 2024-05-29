@@ -11,11 +11,13 @@ Hardware:
 
 Current code includes:
 - OLED with sensor readings
+- Dynamic tempature sensor allocation
+  - I don't know the limit, but I wouldn't bog it down lol.
 - WiFi Setup w/ Static IP handling via WebGUI
 - Web portal sensor readings with configuration
-- Ability to post to InfluxDB
-- Ability to rename all sensors
-- Ability to back-up EEPROM and upload EEPROM
+  - Ability to post to InfluxDB
+  - Ability to rename all sensors
+  - Ability to back-up EEPROM and upload EEPROM
 
 Work in progress:
 - OTA updates
