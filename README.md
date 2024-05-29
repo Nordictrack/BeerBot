@@ -23,3 +23,7 @@ Work in progress:
 - OTA updates
 - SSL Webpage
 - Proper secrets hashing
+- Flow sensor integration
+- Leak sensor integration
+- HomeAssistant Integration
+- HomeKit (maybe)
