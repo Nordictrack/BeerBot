@@ -1,22 +1,23 @@
 # BeerBot
 ESP32 Based Dynamic Beer Monitoring 
 
-This is simple.
+This is a simple Temperature monitoring system for a home tap. Could be used for more than beer to be honest. Datacenter applications are very real here.
+
 
 Hardware:
-ESP32
-SSD1306 OLED Display
-DS18B20 Temperature Sensor Kit
+- ESP32
+- SSD1306 OLED Display
+- DS18B20 Temperature Sensor Kit
 
-Code includes:
-WiFi Setup
-OLED with sensor readings
-Web portal sensor readings with configuration
-Ability to post to InfluxDB
-Ability to rename all sensors
-Ability to back-up EEPROM and upload EEPROM
+Current code includes:
+- OLED with sensor readings
+- WiFi Setup w/ Static IP handling via WebGUI
+- Web portal sensor readings with configuration
+- Ability to post to InfluxDB
+- Ability to rename all sensors
+- Ability to back-up EEPROM and upload EEPROM
 
-Work in progress
-OTA updates
-SSL Webpage
-Proper secrets hashing
+Work in progress:
+- OTA updates
+- SSL Webpage
+- Proper secrets hashing
