@@ -33,9 +33,8 @@ This project uses an Olimex ESP32-POE-ISO microcontroller running ESPHome to mon
 
 1. Install Home Assistant with the ESPHome Add-on.
 2. Use the ESPHome dashboard to add a new device with the following configuration:
-   - Assign a static IP and encryption key
-   - Define the Ethernet and DS18B20 hardware
-   - Use built-in BDF fonts (`fonts/6x10.bdf`) for OLED
+   - Encryption Key
+   - OTA Key
 3. Flash via USB initially; future updates are handled OTA.
 
 ## Contributing
@@ -53,4 +52,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgments
 
 - Thanks to the developers of the libraries used in this project.
-- Inspired by the need to monitor temperatures in a home brewing setup.
+- Inspired by the need to monitor temperatures in a friends home brewing setup.
