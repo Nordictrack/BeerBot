@@ -3,24 +3,21 @@ esphome:
   friendly_name: Beer Bot
 
 esp32:
-  board: esp32-poe-iso
+  board: esp32-poe
   framework:
     type: arduino
 
-# Enable logging
 logger:
 
-# Enable Home Assistant API
 api:
   encryption:
-    key: "GEscIyNImB/TKRP4PDUVF05iiMVuvWe7itBP7EhIHvQ="
+    key: "YOUR-ENCRYPTION-KEY" #Generated from ESPHome
 
 ota:
   - platform: esphome
-    password: "5377879d77ae13ff64c86d5f60cc6690"
+    password: "YOUR-OTA-KEY" #Generated from ESPHome
 
-# Ethernet (Olimex ESP32-POE-ISO)
-ethernet:
+ethernet: #Very specific to the ESP32-POE-ISO board
   type: LAN8720
   mdc_pin: GPIO23
   mdio_pin: GPIO18
@@ -35,21 +32,66 @@ one_wire:
 
 sensor:
   - platform: dallas_temp
-    address: 0x0000000000000001
+    address: 0x0000000000000001 #replace these with the ID from the console when plugged in
     name: "BeerBot Sensor 1"
+    id: sensor1
     one_wire_id: owbus
 
   - platform: dallas_temp
     address: 0x0000000000000002
     name: "BeerBot Sensor 2"
+    id: sensor2
     one_wire_id: owbus
 
   - platform: dallas_temp
     address: 0x0000000000000003
     name: "BeerBot Sensor 3"
+    id: sensor3
     one_wire_id: owbus
 
   - platform: dallas_temp
     address: 0x0000000000000004
     name: "BeerBot Sensor 4"
+    id: sensor4
     one_wire_id: owbus
+
+#This is for the screen, not required, but cool if you want it.
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+  scan: true
+  id: bus_a
+#this font must be installed in HA under ESPHome/fonts
+font:
+  - file: "fonts/Roboto-Regular.ttf"
+    id: my_font
+    size: 10
+
+text_sensor:
+  - platform: ethernet_info
+    ip_address:
+      name: "BeerBot IP"
+      id: eth_ip
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    lambda: |-
+      it.printf(0, 0, id(my_font), "BeerBot");
+
+      if (id(eth_ip).has_state()) {
+        it.printf(0, 12, id(my_font), "IP: %s", id(eth_ip).state.c_str());
+      } else {
+        it.printf(0, 12, id(my_font), "IP: (no link)");
+      }
+
+      it.printf(0, 24, id(my_font), "T1: %.1f°F", id(sensor1).state);
+      it.printf(0, 36, id(my_font), "T2: %.1f°F", id(sensor2).state);
+      it.printf(0, 48, id(my_font), "T3: %.1f°F", id(sensor3).state);
+      it.printf(0, 60, id(my_font), "T4: %.1f°F", id(sensor4).state);
+
+
+
+web_server:
+  port: 80
