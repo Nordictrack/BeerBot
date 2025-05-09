@@ -13,7 +13,7 @@ This project uses an Olimex ESP32-POE-ISO microcontroller running ESPHome to mon
 
 ## Components
 
-- **ESP32-POE-ISO**: Main microcontroller with built-in Ethernet.
+- **ESP32-POE-ISO**: Main microcontroller with built-in Ethernet. [Olimex ESP32-POE](https://www.mouser.com/ProductDetail/Olimex-Ltd/ESP32-POE-ISO-EA?qs=%252B6g0mu59x7KfK%2FIl1ERS8Q%3D%3D)
 - **DS18B20 Sensors**: Up to 4 digital temperature sensors.
 - **SSD1306 OLED**: 128x64 I2C display.
 
