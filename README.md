@@ -1,6 +1,6 @@
 # BeerBot Temperature Monitor (ESPHome Edition)
 
-This project uses an Olimex ESP32-POE-ISO microcontroller running ESPHome to monitor temperatures from multiple DS18B20 sensors and display them on a 128x64 OLED screen. The device connects via Ethernet and exposes all readings natively to Home Assistant. An optional onboard web server allows viewing sensor values directly in a browser.
+This project uses an Olimex ESP32-POE-ISO microcontroller running ESPHome to monitor temperatures from multiple DS18B20 sensors and display them on a 128x64 OLED screen. The device connects via Ethernet and exposes all readings natively to Home Assistant. An optional onboard web server allows viewing sensor values directly in a browser. Note this isn't just for beer, it could temp monitor anything really.
 
 ## Features
 
